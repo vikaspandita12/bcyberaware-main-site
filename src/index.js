@@ -583,7 +583,7 @@ const html = String.raw`<!doctype html>
         <p>Open the live BCyberAware advisory dashboard with security feeds and exploit intelligence.</p>
         <span class="link">Open advisory -></span>
       </a>
-      <a class="card" href="https://sar-automation.vikaspandita12.workers.dev/">
+      <a class="card" href="https://sar.bcyberaware.co.in/">
         <small>Security Review</small>
         <h2>SAR Automation</h2>
         <p>Security architecture review platform for threat modeling, risk scoring and remediation reports.</p>
