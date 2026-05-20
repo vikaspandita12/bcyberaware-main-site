@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "bcyberaware-main-site",
+  "main": "src/index.js",
+  "compatibility_date": "2026-05-20",
+  "routes": [
+    {
+      "pattern": "bcyberaware.co.in/*",
+      "zone_name": "bcyberaware.co.in"
+    },
+    {
+      "pattern": "www.bcyberaware.co.in/*",
+      "zone_name": "bcyberaware.co.in"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
