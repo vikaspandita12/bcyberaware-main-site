@@ -77,6 +77,27 @@ const html = String.raw`<!doctype html>
       margin-bottom: 64px;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cyan);
+    }
+
     .brand {
       display: flex;
       align-items: center;
@@ -168,6 +189,25 @@ const html = String.raw`<!doctype html>
       margin-bottom: 30px;
     }
 
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .badge {
+      border: 1px solid rgba(95, 243, 228, 0.18);
+      border-radius: 999px;
+      background: rgba(95, 243, 228, 0.065);
+      color: #d9fffb;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -228,6 +268,36 @@ const html = String.raw`<!doctype html>
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .value-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin: 38px 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .value {
+      min-height: 116px;
+      padding: 22px;
+      background: rgba(5, 16, 29, 0.82);
+    }
+
+    .value strong {
+      display: block;
+      color: var(--text);
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .value span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
     }
 
     .panel {
@@ -332,6 +402,37 @@ const html = String.raw`<!doctype html>
       font-size: 14px;
     }
 
+    .statement {
+      margin-top: 18px;
+      border: 1px solid rgba(242, 196, 92, 0.22);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(242, 196, 92, 0.12), transparent 45%),
+        rgba(255, 255, 255, 0.035);
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .statement h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+
+    .statement p {
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    .statement .btn {
+      white-space: nowrap;
+    }
+
     footer {
       margin-top: 42px;
       padding: 24px 0 8px;
@@ -350,13 +451,22 @@ const html = String.raw`<!doctype html>
         flex-direction: column;
       }
 
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
       .hero {
         grid-template-columns: 1fr;
       }
 
       .metrics,
-      .cards {
+      .cards,
+      .value-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .statement {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -371,7 +481,8 @@ const html = String.raw`<!doctype html>
       }
 
       .metrics,
-      .cards {
+      .cards,
+      .value-strip {
         grid-template-columns: 1fr;
       }
 
@@ -388,17 +499,28 @@ const html = String.raw`<!doctype html>
         <span class="mark"><span>BC</span></span>
         <span>BCyberAware</span>
       </a>
-      <span class="status"><span class="pulse"></span> Main Hub Live</span>
+      <div class="nav-actions">
+        <a class="nav-link" href="https://advisory.bcyberaware.co.in/">Advisory</a>
+        <a class="nav-link" href="https://vikaspanditaportfolio.bcyberaware.co.in/">Portfolio</a>
+        <a class="nav-link" href="https://bcyberawarebyvikaspandita.wordpress.com/">Blog</a>
+        <span class="status"><span class="pulse"></span> Main Hub Live</span>
+      </div>
     </nav>
 
     <section class="hero">
       <div>
-        <div class="eyebrow">By Vikas Pandita</div>
-        <h1>Cybersecurity. <span>AI Security.</span> Threat Intelligence.</h1>
+        <div class="eyebrow">BCyberAware by Vikas Pandita</div>
+        <h1>Secure the enterprise. <span>Lead with intelligence.</span></h1>
         <p class="lead">
-          BCyberAware is the central hub for enterprise cybersecurity leadership, live threat intelligence,
-          security architecture review, GenAI security governance and practical cyber awareness.
+          BCyberAware brings together cybersecurity leadership, live threat intelligence, security architecture
+          review, GenAI security governance and practical cyber awareness in one professional brand hub.
         </p>
+        <div class="badge-row" aria-label="BCyberAware focus areas">
+          <span class="badge">Threat Intelligence</span>
+          <span class="badge">AI Security</span>
+          <span class="badge">Security Architecture</span>
+          <span class="badge">CISO Advisory</span>
+        </div>
         <div class="actions">
           <a class="btn primary" href="https://advisory.bcyberaware.co.in/">Open Threat Intelligence</a>
           <a class="btn" href="https://vikaspanditaportfolio.bcyberaware.co.in/">Vikas Pandita Portfolio</a>
@@ -432,6 +554,25 @@ const html = String.raw`<!doctype html>
           </div>
         </div>
       </aside>
+    </section>
+
+    <section class="value-strip" aria-label="BCyberAware capabilities">
+      <div class="value">
+        <strong>Executive Cyber Leadership</strong>
+        <span>CISO-level strategy, security architecture direction, board-ready messaging and risk-based prioritization.</span>
+      </div>
+      <div class="value">
+        <strong>Threat Intelligence Hub</strong>
+        <span>Public advisory monitoring, exploit awareness and practical cyber intelligence for fast decision-making.</span>
+      </div>
+      <div class="value">
+        <strong>AI Security Governance</strong>
+        <span>GenAI risk controls, enterprise AI platform governance and responsible security architecture.</span>
+      </div>
+      <div class="value">
+        <strong>Architecture Review</strong>
+        <span>STRIDE, PASTA, DREAD, OWASP and compliance-driven review of HLD and LLD designs.</span>
+      </div>
     </section>
 
     <div class="section-title">Explore BCyberAware</div>
@@ -472,6 +613,18 @@ const html = String.raw`<!doctype html>
         <p>Connect for cybersecurity leadership, consulting, speaking and enterprise security architecture work.</p>
         <span class="link">Connect -></span>
       </a>
+    </section>
+
+    <section class="statement" aria-label="BCyberAware positioning">
+      <div>
+        <h2>Built for security leaders, architects and cyber-aware teams.</h2>
+        <p>
+          Use this main domain as the entry point for every BCyberAware initiative: live threat intelligence,
+          security architecture review, AI security leadership, cybersecurity writing and Vikas Pandita's
+          professional portfolio.
+        </p>
+      </div>
+      <a class="btn primary" href="https://vikaspanditaportfolio.bcyberaware.co.in/">Work With Vikas</a>
     </section>
 
     <footer>

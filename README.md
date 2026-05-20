@@ -17,6 +17,12 @@ This Cloudflare Worker replaces the old GoDaddy placeholder page with a lightwei
 npx wrangler deploy
 ```
 
+## Automatic Deploys
+
+GitHub Actions is configured in `.github/workflows/deploy.yml`.
+
+After the repository secret `CLOUDFLARE_API_TOKEN` is added, every push to `main` will deploy this Worker automatically to Cloudflare.
+
 The Worker routes are configured in `wrangler.jsonc` for:
 
 - `bcyberaware.co.in/*`
