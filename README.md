@@ -17,11 +17,25 @@ This Cloudflare Worker replaces the old GoDaddy placeholder page with a lightwei
 npx wrangler deploy
 ```
 
-## Automatic Deploys
+## Automatic Deploys (GitHub → Cloudflare)
 
 GitHub Actions is configured in `.github/workflows/deploy.yml`.
 
-After the repository secret `CLOUDFLARE_API_TOKEN` is added, every push to `main` will deploy this Worker automatically to Cloudflare.
+### One-time setup: add `CLOUDFLARE_API_TOKEN`
+
+1. Open [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).
+2. Click **Create Token** → use template **Edit Cloudflare Workers**.
+3. Under **Zone Resources**, include zone **bcyberaware.co.in** (or All zones).
+4. Create the token and copy it (shown only once).
+5. In PowerShell, run:
+
+```powershell
+gh secret set CLOUDFLARE_API_TOKEN --repo vikaspandita12/bcyberaware-main-site
+```
+
+Paste the token when prompted. It is stored only in GitHub Secrets, never in the repo.
+
+After that, every push to `main` deploys this Worker to Cloudflare automatically.
 
 The Worker routes are configured in `wrangler.jsonc` for:
 
