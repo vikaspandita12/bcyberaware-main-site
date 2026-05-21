@@ -3,6 +3,9 @@
   "name": "bcyberaware-main-site",
   "main": "src/index.js",
   "compatibility_date": "2026-05-20",
+  "assets": {
+    "directory": "./assets"
+  },
   "routes": [
     {
       "pattern": "bcyberaware.co.in/*",
