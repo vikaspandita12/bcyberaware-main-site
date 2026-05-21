@@ -24,10 +24,15 @@ GitHub Actions is configured in `.github/workflows/deploy.yml`.
 ### One-time setup: add `CLOUDFLARE_API_TOKEN`
 
 1. Open [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).
-2. Click **Create Token** → use template **Edit Cloudflare Workers**.
-3. Under **Zone Resources**, include zone **bcyberaware.co.in** (or All zones).
-4. Create the token and copy it (shown only once).
-5. In PowerShell, run:
+2. Click **Create Token** → use template **Edit Cloudflare Workers** (do not use a read-only or DNS-only template).
+3. Confirm these permissions are included:
+   - **Account** → Workers Scripts → **Edit**
+   - **Account** → Workers Routes → **Edit** (or Account Settings → Read, depending on template)
+   - **Zone** → Workers Routes → **Edit** (needed for `bcyberaware.co.in` routes in `wrangler.jsonc`)
+   - **User** → User Details → **Read** (Wrangler account lookup)
+4. Under **Zone Resources**, include zone **bcyberaware.co.in** (or All zones).
+5. Create the token and copy it (shown only once).
+6. In PowerShell, run:
 
 ```powershell
 gh secret set CLOUDFLARE_API_TOKEN --repo vikaspandita12/bcyberaware-main-site
