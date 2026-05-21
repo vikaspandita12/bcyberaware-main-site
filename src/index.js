@@ -1,3 +1,5 @@
+const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#06111f"/><path d="M16 3.5 26.5 7.8v6.2q-.4 7.2-10.5 11.5Q5.9 21.2 5.5 14V7.8L16 3.5z" fill="#1050cc" stroke="#5fc8ff" stroke-width=".9"/><path d="M12.5 13.2v-2.2q0-2.2 3.5-2.2t3.5 2.2v2.2" fill="none" stroke="#70c8ff" stroke-width="2.2" stroke-linecap="round"/><rect x="11.5" y="13" width="9" height="7.5" rx="2" fill="#70c8ff"/><text x="16" y="29" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="5.5" font-weight="900" fill="#3da2ff">BC</text></svg>`;
+
 const html = String.raw`<!doctype html>
 <html lang="en">
 <head>
@@ -9,6 +11,9 @@ const html = String.raw`<!doctype html>
   <meta property="og:description" content="Cybersecurity, AI Security, Threat Intelligence and Security Architecture." />
   <meta property="og:url" content="https://bcyberaware.co.in/" />
   <meta name="theme-color" content="#06111f" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <style>
     :root {
       color-scheme: dark;
@@ -636,7 +641,21 @@ const html = String.raw`<!doctype html>
 </html>`;
 
 export default {
-  fetch() {
+  fetch(request) {
+    const { pathname } = new URL(request.url);
+    if (
+      pathname === "/favicon.svg" ||
+      pathname === "/favicon.ico" ||
+      pathname === "/apple-touch-icon.png"
+    ) {
+      return new Response(faviconSvg, {
+        headers: {
+          "content-type": "image/svg+xml; charset=utf-8",
+          "cache-control": "public, max-age=86400",
+        },
+      });
+    }
+
     return new Response(html, {
       headers: {
         "content-type": "text/html; charset=utf-8",
