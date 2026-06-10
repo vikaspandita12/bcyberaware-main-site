@@ -11,6 +11,14 @@ This Cloudflare Worker replaces the old GoDaddy placeholder page with a lightwei
 - CyberShots blog
 - LinkedIn and YouTube
 
+## Security & SEO features
+
+- Hardened HTTP security headers on every response: HSTS (preload), strict CSP, `X-Frame-Options: DENY`, `Permissions-Policy`, COOP/CORP, `Referrer-Policy`
+- `/.well-known/security.txt` (RFC 9116) vulnerability-disclosure contact
+- Zero client-side JavaScript — pure HTML/CSS page
+- JSON-LD structured data (`Person`), canonical URL, full Open Graph / Twitter meta
+- Unknown paths 301-redirect to the home page
+
 ## Deploy
 
 ```powershell
