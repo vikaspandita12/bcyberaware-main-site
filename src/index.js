@@ -12,13 +12,17 @@ const html = String.raw`<!doctype html>
   <meta property="og:description" content="Cybersecurity leadership, AI security governance, live threat intelligence and security architecture review." />
   <meta property="og:url" content="https://bcyberaware.co.in/" />
   <meta property="og:site_name" content="BCyberAware" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://bcyberaware.co.in/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://bcyberaware.co.in/og-image.png" />
   <meta name="twitter:title" content="BCyberAware — Vikas Pandita" />
   <meta name="twitter:description" content="Cybersecurity leadership, AI security, threat intelligence and security architecture." />
   <meta name="theme-color" content="#070b12" />
-  <link rel="icon" href="/bcyberaware-icon.svg" type="image/svg+xml" />
-  <link rel="shortcut icon" href="/bcyberaware-icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/bcyberaware-logo.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/bcyberaware-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -691,7 +695,7 @@ const html = String.raw`<!doctype html>
     <div class="wrap">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="https://bcyberaware.co.in/" aria-label="BCyberAware home">
-          <img class="brand-logo" src="/bcyberaware-logo.svg" alt="BCyberAware" width="38" height="38" />
+          <img class="brand-logo" src="/bcyberaware-icon.png" alt="BCyberAware" width="38" height="38" />
           <span>BCyberAware</span>
         </a>
         <div class="nav-actions">
