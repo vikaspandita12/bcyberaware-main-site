@@ -866,6 +866,19 @@ Canonical: https://bcyberaware.co.in/.well-known/security.txt
 Policy: https://bcyberaware.co.in/
 `;
 
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: https://bcyberaware.co.in/sitemap.xml
+Sitemap: https://advisory.bcyberaware.co.in/sitemap.xml
+`;
+
+const sitemapXml = () => `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://bcyberaware.co.in/</loc><lastmod>${new Date().toISOString().slice(0, 10)}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+</urlset>
+`;
+
 const securityHeaders = {
   "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
   "content-security-policy":
@@ -890,6 +903,14 @@ export default {
           ...securityHeaders,
         },
       });
+    }
+
+    if (pathname === "/robots.txt") {
+      return new Response(robotsTxt, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=86400", ...securityHeaders } });
+    }
+
+    if (pathname === "/sitemap.xml") {
+      return new Response(sitemapXml(), { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=3600", ...securityHeaders } });
     }
 
     if (pathname !== "/" && pathname !== "") {
